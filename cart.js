@@ -1,11 +1,15 @@
 'use strict';
 const cart = {
   items: [],
-  totalPrice: 10,
-  count: 0,
-  getTotalPrice () {
-    return this.totalPrice
+  get totalPrice () {
+    return this.calculateItemPrice();
   },
+  set totalPrice (i) {
+    this.totalPrice = i;
+  },
+  count: 0,
+  // totalPrice: 0,
+
   add (name, price, number = 1) {
     const product = {name, price, number};
     this.items.push(product);
@@ -19,7 +23,7 @@ const cart = {
     return this.count;
   },
   calculateItemPrice () {
-    this.totalPrice = this.items.reduce((acc, num) => acc + (num.price * num.number), 0);
+    return this.i = this.items.reduce((acc, num) => acc + (num.price * num.number), 0);
   },
   clear () {
     this.items.length = 0;
@@ -28,16 +32,16 @@ const cart = {
   },
   print () {
     this.items.forEach(item => console.log(item.name,  JSON.stringify(item)));
-    console.log(cart.getTotalPrice());
+    // console.log(cart.getTotalPrice());
   },
 }
 
 
-
-console.log(cart.add('Телевизор', 100, 50));
-console.log(cart.add('Телефон', 60, 40));
+console.log(cart)
+console.log(cart.add('Телевизор', 200, 50));
+console.log(cart.add('Телефон', 160, 40));
 console.log(cart.add('Приставка', 500, 1));
-cart.print();
+
 
 
 
