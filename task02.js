@@ -24448,7 +24448,7 @@ const listIPv4 = [
   "10.78.125.206",
   "10.0.32.20"
 ];
-const newIp = Array.from(new Set(listIPv4));
+const newIp = [...new Set(listIPv4)];
 
 const sort = () => {
   return newIp.length;
